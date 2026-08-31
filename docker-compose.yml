@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: almoxarifado-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: Almoxarifado
+    ports:
+      - "3306:3306"
+
+  app:
+    build: .
+    container_name: almoxarifado-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
