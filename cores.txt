@@ -32,3 +32,17 @@ TONS DE VERMELHO
 #A6520F
 #A60F3A
 #A66A0F
+
+
+cd ".\app expo\"
+npx.cmd create-expo-app@latest App-Almox --template blank
+For learning with Expo Go (SDK 54)
+cd ".\App-Almox\"
+npm.cmd install (Para sempre colocar o node_modules)
+npx.cmd expo start
+  
+
+coisas que estao faltando no meu site:
+* dockerfile do banco de dados;
+* conseguir abrir o qrcode;
+* 
