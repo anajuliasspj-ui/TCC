@@ -1,17 +1,23 @@
 services:
   db:
-    image: mysql:8.0
-    container_name: almoxarifado-db
+    image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: Almoxarifado
+      MYSQL_ROOT_PASSWORD: senha123
+      MYSQL_DATABASE: almoxarifado
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./Almoxarifado.sql:/docker-entrypoint-initdb.d/Almoxarifado.sql
 
-  app:
-    build: .
-    container_name: almoxarifado-app
+  api:
+    build:
+      context: .
+      dockerfile: banco/Dockerfile.flask
     ports:
       - "5000:5000"
     depends_on:
       - db
+
+volumes:
+  dbdata:
